@@ -9,6 +9,8 @@ import Home from "./components/Home.jsx"
 import Enfermeria from './components/Enfermeria.jsx';
 import Clinica from './components/Clinica.jsx'
 import Expediente from './components/Expediente.jsx';
+import Laboratorio from './components/Laboratorio.jsx';
+import Farmacia from './components/Farmacia.jsx';
 
 function App() {
 
@@ -29,6 +31,8 @@ function App() {
               <Route path="/Enfermeria" element={<Enfermeria/>} />
               <Route path="/Clinica" element={<Clinica/>} />
               <Route path="/Expediente/:Id" element={<Expediente/>} />
+              <Route path="/Laboratorio" element={<Laboratorio/>} />
+              <Route path="/Farmacia" element={<Farmacia/>} />
 
             </Routes>
           </main>

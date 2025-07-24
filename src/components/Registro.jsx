@@ -10,7 +10,7 @@ const [DPI, setDPI] = useState("")
 const [Nacimiento, setNacimiento] = useState("")
 const [Direccion, setDireccion] = useState("")
 const [Motivo, setMotivo] = useState("")
-const Api = "http://localhost:4000/ApiJornadaICAT/"
+const Api = "https://apieventos-y9x9.onrender.com/"
 
 const Limpiar = () =>{
     setNombre1("")

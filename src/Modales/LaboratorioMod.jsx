@@ -3,25 +3,23 @@ import axios from 'axios';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import 'bootstrap/dist/js/bootstrap.bundle.min.js';
 
-function ModalComponent({Id, Nombre, Apellido}) {
+function ModalComponent({Id, Nombre, Apellido, Estado, Descripcion, Alergias}) {
   const [showModal, setShowModal] = useState(false);
   const Api = "https://apieventos-y9x9.onrender.com/"
-  const [Descripcion, setDescripcion] = useState("")
 
   const openModal = () => {
     setShowModal(true);
   };
 
   const closeModal = () => {
-    Limpiar()
     setShowModal(false);
   };
 
   const Guardar = async () => {
     if(Descripcion){
         try {
-            const send = await axios.post(Api + "InsertMedicamentoPaciente", {Id, Descripcion})
-            Limpiar()
+            const send = await axios.post(Api + "RealizarExamenes", {Id, Estado})
+            closeModal()
             alert(send.data.message)
         } catch (error) {
         alert('Error al ejecutar esta accion', error);
@@ -30,15 +28,10 @@ function ModalComponent({Id, Nombre, Apellido}) {
     
   }
 
-  const Limpiar = () => {
-    setDescripcion("")
-  }
-
-
   return (
     <div>
-      <button type="button" className="btn btn-warning" onClick={openModal}>
-        Recetario de Medicamento
+      <button type="button" className="btn btn-success" onClick={openModal}>
+        Ver
       </button>
 
       <div
@@ -53,21 +46,28 @@ function ModalComponent({Id, Nombre, Apellido}) {
           <div className="modal-content">
             <div className="modal-header">
               <h5 className="modal-title" >
-                Recetario del paciente {Nombre} {Apellido}
+                Examenes para el paciente {Nombre} {Apellido}
               </h5>
               <button type="button" className="btn-close" onClick={closeModal} aria-label="Close"></button>
             </div>
             <div className="modal-body">
             <div className='container p-12'>
                 <div className='row'>
-
+                        <div className='mb-3'>
+                            <label htmlFor="description" className='form-label'>Alergias:</label>
+                            <textarea
+                            type="text"
+                            className="form-control"
+                            value={Alergias}
+                            required
+                            />
+                        </div>
                         <div className="mb-3">
                         <label htmlFor="descripcion" className="form-label">Descripcion:</label>
                         <textarea
                             type="text"
                             className="form-control"
                             value={Descripcion}
-                            onChange={(e) => setDescripcion(e.target.value)}
                             required
                         />
                         </div>
@@ -75,9 +75,8 @@ function ModalComponent({Id, Nombre, Apellido}) {
             </div>
             </div>
             <div className="modal-footer">
-              <button type="button" className="btn btn-primary" onClick={Guardar}>
-                Guardar
-              </button>
+              {Estado == 1 ? <div> <button type="button" className="btn btn-primary" onClick={Guardar}>Realizados</button> </div> 
+              : Estado == 2 ? <div> <button type="button" className="btn btn-primary" onClick={Guardar}>Entregados</button> </div> : null}
             </div>
           </div>
         </div>

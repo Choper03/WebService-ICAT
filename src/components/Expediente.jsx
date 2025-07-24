@@ -7,7 +7,7 @@ function Expediente() {
 
   const [data, setData] = useState([]);
   const [Paciente, setPaciente] = useState([])
-  const Api = "http://localhost:4000/ApiJornadaICAT/"
+  const Api = "https://apieventos-y9x9.onrender.com/"
   const {Id} = useParams()
   var Edad =0;  
   useEffect(() => {

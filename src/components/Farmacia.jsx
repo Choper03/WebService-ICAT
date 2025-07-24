@@ -2,16 +2,17 @@ import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { Link } from 'react-router-dom';
-import Signos from '../Modales/Signos.jsx'
-function Enfermeria() {
+import LaboratorioMod from '../Modales/Farmacia.jsx'
+
+function Farmacia() {
   const [data, setData] = useState([]);
-  const Api = "https://apieventos-y9x9.onrender.com"
+  const Api = "https://apieventos-y9x9.onrender.com/"
 
 
   useEffect(() => {
     async function ListarPacientes() {
       try {
-          const response = await axios.post(Api + "ListPacientesSignos"); 
+          const response = await axios.post(Api + "ListMedicamentoPaciente"); 
         setData(response.data);
         
       } catch (error) {
@@ -31,8 +32,10 @@ function Enfermeria() {
           <tr>
             <th>No.</th>
             <th>Primer Nombre</th>
+            <th>Segundo Nombre</th>
             <th>Primer Apellido</th>
             <th>Segundo Apellido</th>
+            <th>Estado</th>
             <th>Acciones</th>
           </tr>
         </thead>
@@ -41,9 +44,11 @@ function Enfermeria() {
             <tr key={data.ID}>
               <td>{data.ID}</td>
               <td>{data.NOMBRE1}</td>
+              <td>{data.NOMBRE2}</td>
               <td>{data.APELLIDO1}</td>
               <td>{data.APELLIDO2}</td>
-              <td><Signos Id={data.ID} Nombre={data.NOMBRE1} Apellido={data.APELLIDO1}/></td>
+              <td>{data.ESTADO == 1 ?("Pendiente") : null}</td>
+              <td><LaboratorioMod Id={data.ID} Nombre={data.NOMBRE1} Apellido={data.APELLIDO1} Estado={data.ESTADO} Descripcion={data.DESCRIPCION} Alergias={data.ALERGIAS} /></td>
             </tr>
           ))}
         </tbody>
@@ -54,4 +59,4 @@ function Enfermeria() {
   );
 }
 
-export default Enfermeria;
+export default Farmacia;

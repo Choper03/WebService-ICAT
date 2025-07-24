@@ -4,7 +4,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import { Link } from 'react-router-dom';
 function Enfermeria() {
   const [data, setData] = useState([]);
-  const Api = "http://localhost:4000/ApiJornadaICAT/"
+  const Api = "https://apieventos-y9x9.onrender.com/"
 
 
   useEffect(() => {
@@ -33,6 +33,7 @@ function Enfermeria() {
             <th>Primer Apellido</th>
             <th>Segundo Apellido</th>
             <th>Tipo de Consulta</th>
+            <th>Estado</th>
             <th>Acciones</th>
           </tr>
         </thead>
@@ -44,6 +45,7 @@ function Enfermeria() {
               <td>{data.APELLIDO1}</td>
               <td>{data.APELLIDO2}</td>
               <td>{data.MOTIVO}</td>
+              <td>{data.ESTADO1 == 2 ? ("Pendiente") : ("Pendiente Resultados")}</td>
               <td><Link to={`/Expediente/${data.ID}`} className="btn btn-outline-primary">Expediente</Link> </td>
             </tr>
           ))}
