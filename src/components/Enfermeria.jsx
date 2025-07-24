@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom';
 import Signos from '../Modales/Signos.jsx'
 function Enfermeria() {
   const [data, setData] = useState([]);
-  const Api = "https://apieventos-y9x9.onrender.com"
+  const Api = "https://apieventos-y9x9.onrender.com/ApiJornadaICAT/"
 
 
   useEffect(() => {

@@ -10,7 +10,7 @@ const [DPI, setDPI] = useState("")
 const [Nacimiento, setNacimiento] = useState("")
 const [Direccion, setDireccion] = useState("")
 const [Motivo, setMotivo] = useState("")
-const Api = "https://apieventos-y9x9.onrender.com/"
+const Api = "https://apieventos-y9x9.onrender.com/ApiJornadaICAT/"
 
 const Limpiar = () =>{
     setNombre1("")
@@ -25,7 +25,7 @@ const Limpiar = () =>{
 const Guardar = async (event) => {
     event.preventDefault(); 
     if(Nombre1 && Apellido1 && DPI && Nacimiento && Direccion && Motivo){
-        const send = await axios.post(Api + '/InsertPaciente', {Nombre1, Nombre2, Apellido1, Apellido2, DPI, Nacimiento, Direccion, Motivo})
+        const send = await axios.post(Api + 'InsertPaciente', {Nombre1, Nombre2, Apellido1, Apellido2, DPI, Nacimiento, Direccion, Motivo})
         alert(send.data.message)
         Limpiar()
     } else {

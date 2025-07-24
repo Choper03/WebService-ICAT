@@ -4,13 +4,13 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import { Link } from 'react-router-dom';
 function Enfermeria() {
   const [data, setData] = useState([]);
-  const Api = "https://apieventos-y9x9.onrender.com/"
+  const Api = "https://apieventos-y9x9.onrender.com/ApiJornadaICAT/"
 
 
   useEffect(() => {
     async function ListarPacientes() {
       try {
-          const response = await axios.post(Api + "/ListPacientesDoc"); 
+          const response = await axios.post(Api + "ListPacientesDoc"); 
         setData(response.data);
         
       } catch (error) {

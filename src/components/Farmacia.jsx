@@ -6,7 +6,7 @@ import LaboratorioMod from '../Modales/Farmacia.jsx'
 
 function Farmacia() {
   const [data, setData] = useState([]);
-  const Api = "https://apieventos-y9x9.onrender.com/"
+  const Api = "https://apieventos-y9x9.onrender.com/ApiJornadaICAT/"
 
 
   useEffect(() => {

@@ -5,7 +5,7 @@ import 'bootstrap/dist/js/bootstrap.bundle.min.js';
 
 function ModalComponent({Id, Nombre, Apellido, Estado, Descripcion, Alergias}) {
   const [showModal, setShowModal] = useState(false);
-  const Api = "https://apieventos-y9x9.onrender.com/"
+  const Api = "https://apieventos-y9x9.onrender.com/ApiJornadaICAT/"
 
   const openModal = () => {
     setShowModal(true);
