@@ -24,7 +24,7 @@ const Limpiar = () =>{
 
 const Guardar = async (event) => {
     event.preventDefault(); 
-    if(Nombre1 && Apellido1 && DPI && Nacimiento && Direccion && Motivo){
+    if(Nombre1 && Apellido1 && Nacimiento && Direccion && Motivo){
         const send = await axios.post(Api + 'InsertPaciente', {Nombre1, Nombre2, Apellido1, Apellido2, DPI, Nacimiento, Direccion, Motivo})
         alert(send.data.message)
         Limpiar()
@@ -84,7 +84,7 @@ const Guardar = async (event) => {
         </div>
         <div className='col-sm-6'>
                 <div className="mb-3">
-                <label htmlFor="descripcion" className="form-label">DPI *</label>
+                <label htmlFor="descripcion" className="form-label">DPI </label>
                     <input
                     type="number"
                     className="form-control"
