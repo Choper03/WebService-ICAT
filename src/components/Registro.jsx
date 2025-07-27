@@ -10,6 +10,7 @@ const [DPI, setDPI] = useState("")
 const [Nacimiento, setNacimiento] = useState("")
 const [Direccion, setDireccion] = useState("")
 const [Motivo, setMotivo] = useState("")
+const [Sexo, setSexo] = useState("")
 const Api = "https://apieventos-y9x9.onrender.com/ApiJornadaICAT/"
 
 const Limpiar = () =>{
@@ -101,6 +102,16 @@ const Guardar = async (event) => {
                     className="form-control"
                     value={Nacimiento}
                     onChange={(e) => setNacimiento(e.target.value)}
+                    required
+                    />
+                </div>
+                <div className="mb-3">
+                <label htmlFor="descripcion" className="form-label">Sexo *</label>
+                    <input
+                    type="date"
+                    className="form-control"
+                    value={Sexo}
+                    onChange={(e) => setSexo(e.target.value)}
                     required
                     />
                 </div>
