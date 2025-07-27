@@ -136,9 +136,9 @@ const Guardar = async (event) => {
                         <option value="">Seleccione una opción</option>
                         <option value="Consulta General">Consulta General</option>
                         <option value="Pie Diabetico">Pie Diabetico</option>
-                        <option value="Pie Diabetico">Paciente Diabetico</option>
-                        <option value="Pie Diabetico">Consulta de niños</option>
-                        <option value="Pie Diabetico">Hipertensos</option>
+                        <option value="Paciente Diabetico">Paciente Diabetico</option>
+                        <option value="Consulta de niños">Consulta de niños</option>
+                        <option value="Hipertensos">Hipertensos</option>
                         </select>
                 </div>
                 <div className='mb-3'>
