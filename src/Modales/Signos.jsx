@@ -3,13 +3,14 @@ import axios from 'axios';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import 'bootstrap/dist/js/bootstrap.bundle.min.js';
 
-function ModalComponent({Id, Nombre, Apellido}) {
+function ModalComponent({Id, Nombre, Apellido, Motivo}) {
   const [showModal, setShowModal] = useState(false);
   const Api = "https://apieventos-y9x9.onrender.com/ApiJornadaICAT/"
   const [Presion, setPresion] = useState("")
   const [Temperatura, setTemperatura] = useState("")
   const [Altura, setAltura] = useState("")
   const [Peso, setPeso] = useState("")
+  const [Glucosa, setGlucosa] = useState("")
   const [Alergias, setAlergias] = useState("")
 
   const openModal = () => {
@@ -22,9 +23,9 @@ function ModalComponent({Id, Nombre, Apellido}) {
   };
 
   const Guardar = async () => {
-    if(Presion && Temperatura && Altura && Peso && Alergias){
+    if(Presion && Temperatura){
         try {
-            const send = await axios.post(Api + "InsertSignos", {Id, Presion, Temperatura, Altura, Peso, Alergias})
+            const send = await axios.post(Api + "InsertSignos", {Id, Presion, Temperatura, Altura, Peso, Alergias, Glucosa})
             Limpiar()
             alert(send.data.message)
         } catch (error) {
@@ -40,6 +41,7 @@ function ModalComponent({Id, Nombre, Apellido}) {
     setPeso("")
     setAltura("")
     setAlergias("")
+    setGlucosa("")
   }
 
 
@@ -63,14 +65,16 @@ function ModalComponent({Id, Nombre, Apellido}) {
               <h5 className="modal-title" >
                 Complete la siguiente información del paciente {Nombre} {Apellido}
               </h5>
+              
               <button type="button" className="btn-close" onClick={closeModal} aria-label="Close"></button>
             </div>
             <div className="modal-body">
             <div className='container p-12'>
+              <h6>Tipo de consulta: {Motivo}</h6>
                 <div className='row'>
 
                         <div className="mb-3">
-                        <label htmlFor="descripcion" className="form-label">Presion:</label>
+                        <label htmlFor="descripcion" className="form-label">Presion *</label>
                         <input
                             type="text"
                             className="form-control"
@@ -80,7 +84,7 @@ function ModalComponent({Id, Nombre, Apellido}) {
                         />
                         </div>
                         <div className="mb-3">
-                        <label htmlFor="descripcion" className="form-label">Temperatura:</label>
+                        <label htmlFor="descripcion" className="form-label">Temperatura *</label>
                         <input
                             type="number"
                             className="form-control"
@@ -90,7 +94,7 @@ function ModalComponent({Id, Nombre, Apellido}) {
                         />
                         </div>
                         <div className="mb-3">
-                        <label htmlFor="descripcion" className="form-label">Altura en centímetros:</label>
+                        <label htmlFor="descripcion" className="form-label">Altura en centímetros</label>
                         <input
                             type="number"
                             className="form-control"
@@ -100,7 +104,7 @@ function ModalComponent({Id, Nombre, Apellido}) {
                         />
                         </div>
                         <div className="mb-3">
-                        <label htmlFor="descripcion" className="form-label">Peso en kilos:</label>
+                        <label htmlFor="descripcion" className="form-label">Peso en kilos</label>
                         <input
                             type="number"
                             className="form-control"
@@ -110,7 +114,17 @@ function ModalComponent({Id, Nombre, Apellido}) {
                         />
                         </div>
                         <div className="mb-3">
-                        <label htmlFor="descripcion" className="form-label">Alergias:</label>
+                        <label htmlFor="descripcion" className="form-label">Glucosa</label>
+                        <input
+                            type="text"
+                            className="form-control"
+                            value={Glucosa}
+                            onChange={(e) => setGlucosa(e.target.value)}
+                            required
+                        />
+                        </div>
+                        <div className="mb-3">
+                        <label htmlFor="descripcion" className="form-label">Alergias</label>
                         <input
                             type="text"
                             className="form-control"

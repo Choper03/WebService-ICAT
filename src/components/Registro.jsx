@@ -20,6 +20,7 @@ const Limpiar = () =>{
     setDPI("")
     setDireccion("")
     setMotivo("")
+    setNacimiento("")
 }
 
 const Guardar = async (event) => {
@@ -124,6 +125,9 @@ const Guardar = async (event) => {
                         <option value="">Seleccione una opción</option>
                         <option value="Consulta General">Consulta General</option>
                         <option value="Pie Diabetico">Pie Diabetico</option>
+                        <option value="Pie Diabetico">Paciente Diabetico</option>
+                        <option value="Pie Diabetico">Consulta de niños</option>
+                        <option value="Pie Diabetico">Hipertensos</option>
                         </select>
                 </div>
                 <div className='mb-3'>

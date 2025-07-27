@@ -18,7 +18,7 @@ function ModalComponent({Id, Nombre, Apellido, Estado, Descripcion, Alergias}) {
   const Guardar = async () => {
     if(Descripcion){
         try {
-            const send = await axios.post(Api + "RealizarExamenes", {Id, Estado})
+            const send = await axios.post(Api + "MediamentoEntregado", {Id, Estado})
             closeModal()
             alert(send.data.message)
         } catch (error) {

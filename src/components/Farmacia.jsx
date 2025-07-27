@@ -47,7 +47,7 @@ function Farmacia() {
               <td>{data.NOMBRE2}</td>
               <td>{data.APELLIDO1}</td>
               <td>{data.APELLIDO2}</td>
-              <td>{data.ESTADO == 1 ?("Pendiente") : null}</td>
+              <td>{data.ESTADO == 1 ?("Pendiente") : ("Entregado")}</td>
               <td><LaboratorioMod Id={data.ID} Nombre={data.NOMBRE1} Apellido={data.APELLIDO1} Estado={data.ESTADO} Descripcion={data.DESCRIPCION} Alergias={data.ALERGIAS} /></td>
             </tr>
           ))}

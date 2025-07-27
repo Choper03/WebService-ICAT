@@ -47,6 +47,7 @@ function Enfermeria() {
                     Id={item.ID}
                     Nombre={item.NOMBRE1}
                     Apellido={item.APELLIDO1}
+                    Motivo={item.MOTIVO}
                   />
                 </td>
               </tr>
