@@ -37,6 +37,7 @@ function Expediente() {
                     <th>Temperatura</th>
                     <th>Altura</th>
                     <th>Peso</th>
+                    <th>Glucosa</th>
                     <th>Alergias</th>
                 </tr>
                 </thead>
@@ -47,6 +48,7 @@ function Expediente() {
                     <td>{data.TEMPERATURA}º</td>
                     <td>{data.ALTURA} cm</td>
                     <td>{data.PESO} kg</td>
+                    <td>{data.GLUCOSA}</td>
                     <td>{data.ALERGIAS}</td>
                     </tr>
                 ))}
