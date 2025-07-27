@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import 'bootstrap/dist/js/bootstrap.bundle.min.js';
+import { useNavigate } from 'react-router-dom';
 
 function ModalComponent({Id, Nombre, Apellido, Motivo}) {
   const [showModal, setShowModal] = useState(false);
@@ -12,6 +13,7 @@ function ModalComponent({Id, Nombre, Apellido, Motivo}) {
   const [Peso, setPeso] = useState("")
   const [Glucosa, setGlucosa] = useState("")
   const [Alergias, setAlergias] = useState("")
+  const Navigate = useNavigate()
 
   const openModal = () => {
     setShowModal(true);
@@ -28,6 +30,7 @@ function ModalComponent({Id, Nombre, Apellido, Motivo}) {
             const send = await axios.post(Api + "InsertSignos", {Id, Presion, Temperatura, Altura, Peso, Alergias, Glucosa})
             Limpiar()
             alert(send.data.message)
+            Navigate('/Home')
         } catch (error) {
         alert('Error al ejecutar esta accion', error);
         }
