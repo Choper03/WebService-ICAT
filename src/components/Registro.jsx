@@ -108,7 +108,7 @@ const Guardar = async (event) => {
                 <div className="mb-3">
                 <label htmlFor="descripcion" className="form-label">Sexo *</label>
                     <input
-                    type="date"
+                    type="text"
                     className="form-control"
                     value={Sexo}
                     onChange={(e) => setSexo(e.target.value)}
